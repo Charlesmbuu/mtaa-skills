@@ -34,17 +34,55 @@ A modern web platform connecting service seekers with verified local service pro
 
 ## 🏗️ Project Structure
 mtaa_skills/
+
+| Directory/File | Purpose |
+|---------------|---------|
+| `backend/` | Django project configuration |
+| `users/` | Custom user authentication & management |
+| `services/` | Service categories & provider profiles |
+| `bookings/` | Job posting & booking system |
+| `templates/` | HTML templates for frontend |
+| `manage.py` | Django management script |
+
+---
+```
+mtaa_skills/
 ├── backend/ # Django project
+│ ├── init.py
 │ ├── settings.py # Project configuration
-│ └── urls.py # URL routing
+│ ├── urls.py # URL routing
+│ └── wsgi.py
 ├── users/ # Custom user management
+│ ├── migrations/
+│ ├── init.py
+│ ├── admin.py
+│ ├── apps.py
+│ ├── models.py # Custom User model
+│ └── views.py
 ├── services/ # Service categories & providers
+│ ├── migrations/
+│ ├── init.py
+│ ├── admin.py
+│ ├── apps.py
+│ ├── models.py # ServiceCategory & ServiceProvider models
+│ ├── urls.py
+│ └── views.py
 ├── bookings/ # Job posting & booking system
+│ ├── migrations/
+│ ├── init.py
+│ ├── admin.py
+│ ├── apps.py
+│ ├── models.py # Job model
+│ ├── urls.py
+│ └── views.py
 ├── templates/ # HTML templates
 │ └── home.html # Main landing page
+├── .gitignore # Git ignore rules
+├── README.md # Project documentation
+├── requirements.txt # Python dependencies
 └── manage.py # Django management script
+```
 
-text
 
 ## 🚀 Quick Start
 
@@ -77,30 +115,33 @@ Access the Application
 Website: http://127.0.0.1:8000
 
 Admin Panel: http://127.0.0.1:8000/admin
+```
 
+---
 
+# 🎯 Next Features in Development
 
+- User registration & authentication forms
 
-🎯 Next Features in Development
-User registration & authentication forms
+- Service provider verification system
 
-Service provider verification system
+- Payment integration (M-Pesa & Stripe)
 
-Payment integration (M-Pesa & Stripe)
+- Review and rating system
 
-Review and rating system
+- Search and filtering functionality
 
-Search and filtering functionality
+- Mobile-responsive design improvements
 
-Mobile-responsive design improvements
+---
 
-👥 Team
+# 👥 Team
 Samburu - Project Lead & Full Stack Developer
 
-📄 License
+# 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-🤝 Contributing
+# 🤝 Contributing
 We welcome contributions! Please feel free to submit pull requests or open issues for suggestions.
 
 Built with ❤️ for Kenyan communities using Django & Python
@@ -112,6 +153,7 @@ text
 Make sure you have this `.gitignore` file in your project root:
 
 **.gitignore**
+```
 Django
 *.pyc
 pycache/
@@ -119,29 +161,42 @@ pycache/
 *.pyd
 .Python
 env/
+```
 
 Database
+```
 *.db
 *.sqlite3
 db.sqlite3
+```
 
 Environment variables
+```
 .env
 .venv
+```
 
 Static files
+```
 /staticfiles/
 /media/
+```
 
 IDE
+```
 .vscode/
 .idea/
 *.swp
 *.swo
+```
 
 OS
+```
 .DS_Store
 Thumbs.db
+```
 
 Logs
+```
 *.log
+```
