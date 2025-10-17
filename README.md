@@ -44,6 +44,43 @@ mtaa_skills/
 | `templates/` | HTML templates for frontend |
 | `manage.py` | Django management script |
 
+---
+
+mtaa_skills/
+├── backend/ # Django project
+│ ├── init.py
+│ ├── settings.py # Project configuration
+│ ├── urls.py # URL routing
+│ └── wsgi.py
+├── users/ # Custom user management
+│ ├── migrations/
+│ ├── init.py
+│ ├── admin.py
+│ ├── apps.py
+│ ├── models.py # Custom User model
+│ └── views.py
+├── services/ # Service categories & providers
+│ ├── migrations/
+│ ├── init.py
+│ ├── admin.py
+│ ├── apps.py
+│ ├── models.py # ServiceCategory & ServiceProvider models
+│ ├── urls.py
+│ └── views.py
+├── bookings/ # Job posting & booking system
+│ ├── migrations/
+│ ├── init.py
+│ ├── admin.py
+│ ├── apps.py
+│ ├── models.py # Job model
+│ ├── urls.py
+│ └── views.py
+├── templates/ # HTML templates
+│ └── home.html # Main landing page
+├── .gitignore # Git ignore rules
+├── README.md # Project documentation
+├── requirements.txt # Python dependencies
+└── manage.py # Django management script
 
 
 
