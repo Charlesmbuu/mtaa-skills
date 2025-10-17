@@ -34,25 +34,18 @@ A modern web platform connecting service seekers with verified local service pro
 
 ## 🏗️ Project Structure
 mtaa_skills/
-├── backend/ # Django project
 
-│ ├── settings.py # Project configuration
+| Directory/File | Purpose |
+|---------------|---------|
+| `backend/` | Django project configuration |
+| `users/` | Custom user authentication & management |
+| `services/` | Service categories & provider profiles |
+| `bookings/` | Job posting & booking system |
+| `templates/` | HTML templates for frontend |
+| `manage.py` | Django management script |
 
-│ └── urls.py # URL routing
 
-├── users/ # Custom user management
 
-├── services/ # Service categories & providers
-
-├── bookings/ # Job posting & booking system
-
-├── templates/ # HTML templates
-
-│ └── home.html # Main landing page
-
-└── manage.py # Django management script
-
-text
 
 ## 🚀 Quick Start
 
