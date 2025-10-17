@@ -45,7 +45,7 @@ mtaa_skills/
 | `manage.py` | Django management script |
 
 ---
-
+```
 mtaa_skills/
 ├── backend/ # Django project
 │ ├── init.py
@@ -81,7 +81,7 @@ mtaa_skills/
 ├── README.md # Project documentation
 ├── requirements.txt # Python dependencies
 └── manage.py # Django management script
-
+```
 
 
 ## 🚀 Quick Start
