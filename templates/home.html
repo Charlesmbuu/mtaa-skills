@@ -13,6 +13,15 @@ cat > templates/home.html << 'EOF'
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/">Mtaa Skills</a>
+            <div class="navbar-nav ms-auto">
+            	{% if user.is_authenticated %}
+                	<a class="nav-link" href="{% url 'profile' %}">Welcome, {{ user.username }}</a>
+                	<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            	{% else %}
+                	<a class="nav-link" href="{% url 'login' %}">Login</a>
+                	<a class="nav-link" href="{% url 'register' %}">Register</a>
+            	{% endif %}
+        	</div>
         </div>
     </nav>
 
