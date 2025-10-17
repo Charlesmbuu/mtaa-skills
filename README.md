@@ -37,6 +37,7 @@ mtaa_skills/
 ├── backend/ # Django project
 
 │ ├── settings.py # Project configuration
+
 │ └── urls.py # URL routing
 
 ├── users/ # Custom user management
@@ -46,6 +47,7 @@ mtaa_skills/
 ├── bookings/ # Job posting & booking system
 
 ├── templates/ # HTML templates
+
 │ └── home.html # Main landing page
 
 └── manage.py # Django management script
