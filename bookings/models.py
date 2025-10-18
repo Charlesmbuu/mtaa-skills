@@ -1,10 +1,10 @@
 from django.db import models
 from users.models import User
-from services.models import ServiceCategory
+# from services.models import ServiceCategory
 
 class Job(models.Model):  # ← THIS MUST EXIST
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
-    service_category = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE)
+    service_category = models.ForeignKey('services.ServiceCategory', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField()
     budget = models.DecimalField(max_digits=10, decimal_places=2)

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Service Providers - Mtaa Skills</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Mtaa Skills</a>
+            <div class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'profile' %}">Welcome, {{ user.username }}</a>
+                    {% if user.user_type == 'provider' %}
+                        <a class="nav-link" href="{% url 'provider_dashboard' %}">Dashboard</a>
+                    {% endif %}
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Our Service Providers</h1>
+        <p class="lead">Find trusted professionals for your needs</p>
+        
+        {% if providers %}
+        <div class="row">
+            {% for provider in providers %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    {% if provider.profile_picture %}
+                    <img src="{{ provider.profile_picture.url }}" class="card-img-top" alt="{{ provider.business_name }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <span class="text-muted">No Image</span>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">{{ provider.business_name }}</h5>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                {% for category in provider.service_categories.all %}
+                                <span class="badge bg-primary">{{ category.name }}</span>
+                                {% endfor %}
+                            </small>
+                        </p>
+                        <p class="card-text">{{ provider.description|truncatewords:20 }}</p>
+                        
+                        <div class="mb-2">
+                            <strong>KES {{ provider.hourly_rate }}/hour</strong>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <small class="text-muted">
+                                📍 {{ provider.location|default:"Location not specified" }}
+                            </small>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <small class="text-muted">
+                                ⭐ {{ provider.average_rating|default:"No ratings yet" }}
+                                • {{ provider.experience_years }} years experience
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <a href="{% url 'provider_detail' provider.id %}" class="btn btn-primary btn-sm">View Profile</a>
+                        {% if provider.is_verified %}
+                        <span class="badge bg-success float-end">Verified</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            <h4>No service providers yet!</h4>
+            <p>Be the first to join our platform as a service provider.</p>
+            {% if user.is_authenticated and user.user_type == 'provider' %}
+                <a href="{% url 'become_provider' %}" class="btn btn-primary">Create Your Provider Profile</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
